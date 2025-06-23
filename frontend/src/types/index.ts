@@ -1,0 +1,1 @@
+// types/index.ts - to be implemented 
