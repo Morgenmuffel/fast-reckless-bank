@@ -18,7 +18,7 @@ public class Account {
     }
 
     public Account(String ownerName) {
-        this.accountNumber = generateAccountNumber();  // Our primary key
+        this.accountNumber = generateAccountNumber();  
         this.ownerName = ownerName;
         this.balance = BigDecimal.ZERO;
         this.createdAt = LocalDateTime.now();
@@ -32,16 +32,16 @@ public class Account {
     // Getters and setters
     public String getAccountNumber() { return accountNumber; }
     public void setAccountNumber(String accountNumber) { this.accountNumber = accountNumber; }
-    
+
     public String getOwnerName() { return ownerName; }
     public void setOwnerName(String ownerName) { this.ownerName = ownerName; }
-    
+
     public BigDecimal getBalance() { return balance; }
     public void setBalance(BigDecimal balance) { this.balance = balance; }
-    
+
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
-    
+
     public List<Transaction> getTransactions() { return transactions; }
     public void setTransactions(List<Transaction> transactions) { this.transactions = transactions; }
 }

@@ -6,7 +6,7 @@ A Spring Boot REST API for a simple banking application.
 
 ### Prerequisites
 
-- **Homebrew** 
+- **Homebrew**
 - **Git**
 
 ### 1. Install Java 21
@@ -124,7 +124,7 @@ curl -X POST http://localhost:8080/api/accounts/transfer \
   -H "Content-Type: application/json" \
   -d '{
     "fromAccountNumber": "ACC123456789",
-    "toAccountNumber": "ACC987654321", 
+    "toAccountNumber": "ACC987654321",
     "amount": 25.00,
     "description": "Payment to friend"
   }'
@@ -198,4 +198,4 @@ java -jar target/banking-api-0.0.1-SNAPSHOT.jar
 
 ```bash
 ./mvnw clean compile
-``` 
+```

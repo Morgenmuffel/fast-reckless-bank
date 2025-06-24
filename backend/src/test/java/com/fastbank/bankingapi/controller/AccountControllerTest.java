@@ -6,8 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
@@ -27,7 +27,7 @@ class AccountControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
+    @MockitoBean
     private AccountService accountService;
 
     @Autowired
@@ -96,7 +96,7 @@ class AccountControllerTest {
     void testDeposit() throws Exception {
         Account account = new Account("John Doe");
         account.setBalance(new BigDecimal("500.00"));
-        
+
         when(accountService.deposit(eq(account.getAccountNumber()), any(BigDecimal.class), anyString()))
             .thenReturn(account);
 
@@ -115,7 +115,7 @@ class AccountControllerTest {
     void testWithdraw() throws Exception {
         Account account = new Account("John Doe");
         account.setBalance(new BigDecimal("300.00"));
-        
+
         when(accountService.withdraw(eq(account.getAccountNumber()), any(BigDecimal.class), anyString()))
             .thenReturn(account);
 
@@ -143,4 +143,4 @@ class AccountControllerTest {
                 .content(objectMapper.writeValueAsString(transferRequest)))
                 .andExpect(status().isOk());
     }
-} 
+}
