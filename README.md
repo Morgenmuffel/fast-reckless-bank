@@ -3,6 +3,11 @@
 A full-stack banking application built with **Spring Boot** (Java) and **React** (TypeScript). Features account management, deposits, withdrawals, and transfers with in-memory storage.
 
 ## 🚀 **Live Demo**
+
+[![Fast & Reckless Bank Demo](https://img.youtube.com/vi/SE9bBlgrIYo/0.jpg)](https://youtu.be/SE9bBlgrIYo?si=Sxqx_Z2uXXjnllaF)
+
+*Click the image above to watch the demo video*
+
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:8080/api
 
@@ -80,7 +85,7 @@ Frontend will be available at: http://localhost:3000
 ## 🧪 **Demo Accounts**
 The application comes with demo accounts you can use for testing:
 
-| Account Number | Owner Name | 
+| Account Number | Owner Name |
 |---|---|
 | ACC1750689494427700 | John Doe |
 | ACC1750689512262966 | Jane Smith |
@@ -205,4 +210,4 @@ This project is built for technical assessment purposes.
 
 ---
 
-**Happy Banking!** 🏦💰 
+**Happy Banking!** 🏦💰
