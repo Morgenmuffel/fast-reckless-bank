@@ -31,7 +31,7 @@ const AccountList: React.FC = () => {
   if (accounts.length === 0) {
     return (
       <div className="text-center py-8">
-        <p className="text-gray-500">No accounts found</p>
+        <p className="text-white">No accounts found</p>
       </div>
     );
   }

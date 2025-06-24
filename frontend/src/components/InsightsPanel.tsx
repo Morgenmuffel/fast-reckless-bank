@@ -5,11 +5,11 @@ const InsightsPanel: React.FC = () => {
   return (
     <div className="card text-center py-8">
       <div className="text-4xl mb-4">🤖</div>
-      <h2 className="text-xl font-bold text-gray-900 mb-2">AI Insights</h2>
-      <p className="text-gray-600 mb-4">
+      <h2 className="text-xl font-bold text-white mb-2">AI Insights</h2>
+      <p className="text-white mb-4">
         Coming soon! AI-powered financial insights and recommendations.
       </p>
-      <div className="text-sm text-gray-500">
+      <div className="text-sm text-white">
         This feature will be implemented in the next phase.
       </div>
     </div>

@@ -8,7 +8,7 @@ const LoginScreen: React.FC = () => {
   const [accountNumber, setAccountNumber] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  
+
   // Hook for navigation between pages
   const navigate = useNavigate();
 
@@ -38,15 +38,15 @@ const LoginScreen: React.FC = () => {
 
   // JSX - HTML-like syntax that defines what the component looks like
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-md w-full mx-4">
-        {/* Main login card */}
-        <div className="card text-center">
-          {/* Bank name header */}
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            FAST & RECKLESS BANK
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="max-w-md w-full">
+        {/* Main login card with glassmorphism effect */}
+        <div className="glass-container p-8 text-center">
+          {/* Bank name header with handwritten font */}
+          <h1 className="logo mb-2">
+            Fast & Reckless Bank
           </h1>
-          <p className="text-gray-600 mb-8">Enter your account to continue</p>
+          <p className="text-white mb-8 text-sm">Enter your account to continue</p>
 
           {/* Login form */}
           <form onSubmit={handleLogin} className="space-y-6">
@@ -60,7 +60,7 @@ const LoginScreen: React.FC = () => {
                 value={accountNumber}
                 onChange={(e) => setAccountNumber(e.target.value)}
                 placeholder="ACC________________"
-                className="form-input text-center font-mono"
+                className="form-input text-center font-mono tracking-wider"
                 required
                 disabled={loading}
               />
@@ -70,39 +70,48 @@ const LoginScreen: React.FC = () => {
             {error && <p className="form-error">{error}</p>}
 
             {/* Action buttons */}
-            <div className="flex gap-4">
+            <div className="flex flex-col gap-3">
               <button
                 type="submit"
                 disabled={loading || !accountNumber.trim()}
-                className="btn-primary flex-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? (
                   <span className="flex items-center justify-center">
-                    <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>
+                    <div className="loading-spinner mr-2"></div>
                     Checking...
                   </span>
                 ) : (
-                  'Login'
+                  'Access Account'
                 )}
               </button>
-              
+
               <button
                 type="button"
                 onClick={handleCreateAccount}
-                className="btn-secondary flex-1"
+                className="btn-secondary"
                 disabled={loading}
               >
-                Create Account
+                Create New Account
               </button>
             </div>
           </form>
 
           {/* Demo accounts section */}
-          <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-            <p className="text-sm text-blue-800 font-medium mb-2">💡 Demo accounts available:</p>
-            <div className="space-y-1 text-sm text-blue-700">
-              <p>ACC1234567890 (John Doe)</p>
-              <p>ACC0987654321 (Jane Smith)</p>
+          <div className="mt-8 p-4 bg-gray-800/30 border border-gray-700/50 rounded-xl backdrop-blur-sm">
+            <p className="text-sm text-purple-400 font-medium mb-3 flex items-center">
+              <span className="mr-2">✨</span>
+              Demo accounts available
+            </p>
+            <div className="space-y-2 text-sm text-white">
+              <div className="flex justify-between items-center p-2 bg-gray-700/30 rounded-lg">
+                <span className="font-mono text-xs">ACC1234567890</span>
+                <span className="text-white">John Doe</span>
+              </div>
+              <div className="flex justify-between items-center p-2 bg-gray-700/30 rounded-lg">
+                <span className="font-mono text-xs">ACC0987654321</span>
+                <span className="text-white">Jane Smith</span>
+              </div>
             </div>
           </div>
         </div>
@@ -111,4 +120,4 @@ const LoginScreen: React.FC = () => {
   );
 };
 
-export default LoginScreen; 
+export default LoginScreen;

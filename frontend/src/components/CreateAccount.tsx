@@ -7,7 +7,7 @@ const CreateAccount: React.FC = () => {
   const [ownerName, setOwnerName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  
+
   const navigate = useNavigate();
 
   // Function to handle account creation
@@ -34,99 +34,99 @@ const CreateAccount: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-md w-full mx-4">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900">
+      <div className="w-full max-w-md">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="logo mb-4">Fast & Reckless Bank</h1>
+          <h2 className="text-2xl font-bold text-white mb-2">Create Your Account</h2>
+          <p className="text-white">Join the future of banking</p>
+        </div>
+
+        {/* Info Card */}
+        <div className="card mb-6">
+          <h3 className="text-lg font-semibold text-white mb-4">What you'll get:</h3>
+          <div className="space-y-3">
+            <div className="flex items-center text-sm text-white">
+              <span className="mr-3 text-purple-400">🎯</span>
+              Your account number will be generated automatically
+            </div>
+            <div className="flex items-center text-sm text-white">
+              <span className="mr-3 text-emerald-400">💎</span>
+              Starting balance: €0.00
+            </div>
+            <div className="flex items-center text-sm text-white">
+              <span className="mr-3 text-blue-400">⚡</span>
+              All transactions tracked in real-time
+            </div>
+            <div className="flex items-center text-sm text-white">
+              <span className="mr-3 text-pink-400">🔒</span>
+              Secure & encrypted by default
+            </div>
+          </div>
+        </div>
+
+        {/* Create Account Form */}
         <div className="card">
-          {/* Back button */}
-          <div className="mb-6">
-            <button
-              onClick={handleBackToLogin}
-              className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
-            >
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Login
-            </button>
-          </div>
-
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              CREATE NEW ACCOUNT
-            </h1>
-            <p className="text-gray-600">Start your banking journey with us</p>
-          </div>
-
-          {/* Create account form */}
           <form onSubmit={handleCreateAccount} className="space-y-6">
             <div>
               <label htmlFor="ownerName" className="form-label">
-                Account Holder Name
+                Full Name
               </label>
               <input
-                id="ownerName"
                 type="text"
+                id="ownerName"
                 value={ownerName}
                 onChange={(e) => setOwnerName(e.target.value)}
-                placeholder="Enter your full name"
                 className="form-input"
+                placeholder="Enter your full name"
                 required
                 disabled={loading}
                 minLength={2}
               />
             </div>
 
-            {/* Error message */}
-            {error && <p className="form-error">{error}</p>}
+            {error && (
+              <div className="form-error">
+                {error}
+              </div>
+            )}
 
-            {/* Information section */}
-            <div className="bg-gray-50 rounded-lg p-4 space-y-3">
-              <div className="flex items-center text-sm text-gray-700">
-                <span className="mr-2">📝</span>
-                Your account number will be generated automatically
-              </div>
-              <div className="flex items-center text-sm text-gray-700">
-                <span className="mr-2">💰</span>
-                Starting balance: €0.00
-              </div>
-              <div className="flex items-center text-sm text-gray-700">
-                <span className="mr-2">⚡</span>
-                All transactions will be tracked instantly
-              </div>
-            </div>
-
-            {/* Action buttons */}
-            <div className="flex gap-4">
-              <button
-                type="button"
-                onClick={handleBackToLogin}
-                className="btn-secondary flex-1"
-                disabled={loading}
-              >
-                Cancel
-              </button>
-              
-              <button
-                type="submit"
-                disabled={loading || !ownerName.trim()}
-                className="btn-primary flex-1 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {loading ? (
-                  <span className="flex items-center justify-center">
-                    <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>
-                    Creating...
-                  </span>
-                ) : (
-                  'Create Account'
-                )}
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={loading || !ownerName.trim()}
+              className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? (
+                <div className="flex items-center justify-center">
+                  <div className="animate-spin w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"></div>
+                  Creating Account...
+                </div>
+              ) : (
+                'Create Account'
+              )}
+            </button>
           </form>
+
+          <div className="mt-6 text-center">
+            <button
+              onClick={handleBackToLogin}
+              className="text-white hover:text-purple-400 transition-colors"
+            >
+              Back to Login
+            </button>
+          </div>
+        </div>
+
+        {/* Security Notice */}
+        <div className="mt-6 text-center">
+          <p className="text-sm text-white">
+            🔐 Your data is protected with bank-grade encryption
+          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default CreateAccount; 
+export default CreateAccount;
